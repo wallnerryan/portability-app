@@ -1,4 +1,4 @@
-Flask-App
+Flask-App Docker Demo
 ===================
 
 A Docker-Built App
@@ -8,14 +8,10 @@ A Docker-Built App
 How to run
 =================
 
-OPTION #1 (Pull from Repository)
-=================
-# Show portability between docker.
-docker pull sclr097.lss.emc.com:5000/emccto/flaskwebapp
 
-OPTION #2 (Pull from git repository)
+(Pull from git repository)
 =================
-git pull https://git.lss.emc.com/scm/trnglm/portability-app.git
+git pull http://github.com/wallnerryan/portability-app.git
 cd portability-app
 docker build .
 
@@ -23,18 +19,17 @@ docker build .
 (In either case, the image will be represented with a UUID)
 docker images
 
-docker tag <imageUUID> emccto/flaskwebapp
+docker tag <imageUUID> demo/flaskwebapp
 
 #run with no settings
-docker run -rm -i -t -P —name FlaskApp emccto/flaskwebapp
+docker run -rm -i -t -P —name FlaskApp demo/flaskwebapp
 
 #run with settings
-docker run —rm i -t —P -e TEXT=“On Host <X>” emccto/flaskwebapp
+docker run —rm i -t —P -e TEXT=“On Host <X>” demo/flaskwebapp
 
 # example
 export HOSTNAME=<hostname>
-docker run —rm i -t —P -e TEXT=$HOSTNAME emccto/flaskwebapp
+docker run —rm i -t —P -e TEXT=$HOSTNAME demo/flaskwebapp
 
 # See what port is exposed
 docker ps (look at 0.0.0.0:<PORT?>->5000/tcp)
-
