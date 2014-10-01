@@ -1,6 +1,6 @@
 # A Simple Flask Web App
 
-FROM ubuntu:13.10
+FROM sclr097.lss.emc.com:5000/emccto/ubuntu:13.10
 MAINTAINER Ryan Wallner <ryan.wallner@emc.com>
 
 # Package Management
@@ -11,6 +11,8 @@ RUN pip install flask
 # Add application to container image
 ADD app /opt/app
 ADD app/app.py /opt/app/app.py
+ADD app/start.sh /opt/app/start.sh
+RUN ["chmod", "+x", "/opt/app/start.sh"]
 
 # Add environment variable default
 ENV TEXT "World"
@@ -19,5 +21,5 @@ ENV TEXT "World"
 EXPOSE 5000
 
 # Run the app
-CMD ["python","/opt/app/app.py"]
+CMD ["/opt/app/start.sh"]
 
