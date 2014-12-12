@@ -1,6 +1,6 @@
 # A Simple Flask Web App
 
-FROM sclr097.lss.emc.com:5000/emccto/ubuntu:13.10
+FROM ubuntu:13.10
 MAINTAINER Ryan Wallner <ryan.wallner@emc.com>
 
 # Package Management
